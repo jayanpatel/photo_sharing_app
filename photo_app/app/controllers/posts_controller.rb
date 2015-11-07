@@ -17,14 +17,29 @@ class PostsController < ApplicationController
 	def create
     caption = post_params[:caption]
     photo = post_params[:photo]
-    @post = Post.create(:caption => caption, :photo => photo, :user_id => @user.id)
-    redirect_to '/'
+    if photo.blank? != false
+    	flash[:error] = "Wut is wrng wid u?! Dis is nut a prsnl blug!"
+    	redirect_to :back
+    else
+    	@post = Post.create(:caption => caption, :photo => photo, :user_id => @user.id)
+    	redirect_to '/'
+  	end
   end
+
+  def edit
+  	@post = Post.find(params[:id])
+	end
+
+	def update
+	  @post = Post.find(params[:id])
+	  @post.update_attributes(post_params)
+	  redirect_to '/users/'+ current_user.id.to_s + '/posts'
+	end
 
   def destroy
   	@post = Post.find(params[:id])
   	@post.destroy
-  	redirect_to posts_path
+  	redirect_to '/users/'+ current_user.id.to_s + '/posts'
   end
 
   

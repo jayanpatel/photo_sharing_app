@@ -1,5 +1,5 @@
 class AddAboutToUsers < ActiveRecord::Migration
-  def self.up
+  def change
   	add_column :users, :about, :string
   end
 end

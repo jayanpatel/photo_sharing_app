@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  get '/users/:id/posts', to: 'posts#show'
+
   root 'posts#index'
 
 
