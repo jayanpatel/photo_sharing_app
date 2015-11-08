@@ -7,8 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div>wfgyuw	fhuipevhiuvhpuvuhopvfhuvwu!</div>
-
 	<% if notice %>
 	  <p class="alert alert-success"><%= notice %></p>
 	<% end %>
@@ -16,18 +14,32 @@
 	  <p class="alert alert-danger"><%= alert %></p>
 	<% end %>
 
-	<p class="navbar-text pull-right">
-		<%= link_to 'Home', posts_path%>
-	<% if user_signed_in? %>
-	  Logged in as <strong><%= link_to "@" + current_user.email.split("@")[0], '/users/'+ current_user.id.to_s + '/posts' %></strong>.
-	  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-	  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-	<% else %>
-	  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-	  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-	<% end %>
+	<p class="navbar-text pull-right container">
+		<div class="row">
+		<%= link_to posts_path do %>
+   		<%= image_tag "http://bit.ly/1WH8xrm", class: "home two columns" %>
+		<% end %>
 	
-	<p></p>
+		<% if user_signed_in? %>
+
+			<%= link_to "New Post", new_post_path, :class => 'button new-post' %>
+
+			<div class="options updating-font-stuff">
+		  	Logged in as <strong class="links"><%= link_to "@" + current_user.email.split("@")[0], '/users/'+ current_user.id.to_s + '/posts', :class => 'navbar-link' %></strong> |
+				
+				<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link button' %> |
+		  	<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link button logout'  %>
+	  	</div>
+		<% else %>
+			<div class="options">
+			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link button'  %> |
+			  <%= link_to "Login", new_user_session_path, :class => 'navbar-link button'  %>
+			</div>
+		<% end %>
+		
+		</div>
+	
+	</p>
 
 	<%= yield %>
 

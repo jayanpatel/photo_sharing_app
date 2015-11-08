@@ -1,0 +1,61 @@
+.row
+{
+	height: 70px;
+	width: 97%;
+	padding-top: 30px;
+	padding-left: 30px;
+	background-color: rgba(30,174,225,0.3);
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+}
+
+.home
+{
+	height: 40px;
+}
+
+.links
+{
+	color: #3CBFBD;
+}
+
+.home-space
+{
+	color: rgba(0,0,0,0);
+	margin-right: 70px;
+}
+
+.new-post
+{
+	margin-left: 2em;
+}
+
+.options
+{
+	float: right;
+	margin-right: 10px;
+}
+
+.updating-font-stuff
+{
+	color: #555;
+}
+
+.container
+{
+	position:relative;
+}
+
+.shadowing
+{
+	background-color: rgba(30,174,225,0.3);
+	width: 350px;
+	font-size: 18px;
+	word-wrap: break-word;
+}
+
+.image
+{
+	width:350px;
+}
