@@ -2,11 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-#serving assets to heroku
-Rails.application.configure do
-    config.serve_static_assets = true
-end
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
